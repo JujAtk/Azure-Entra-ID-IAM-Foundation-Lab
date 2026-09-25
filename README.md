@@ -202,9 +202,11 @@ Next, I opened the **Global Administrator** role while still signed in as the Us
 
 The account could view the role, but **Add assignments** was unavailable.
 
-![Global Administrator restriction](screenshots/06_rbac_restriction.png)
+![Global Administrator restriction](screenshots/06_rbac_restriction.png) 
 
-This was an important part of the lab because it showed that the delegated admin account could perform normal user-management tasks but could not elevate itself into a higher privileged role.
+### Why this matters in IAM
+
+This part of the lab helped me understand why privileged access should be separated from a normal user account. I used a dedicated admin identity and assigned the User Administrator role instead of Global Administrator so the account only had the permissions needed for user-management tasks. Testing the role also showed me that least privilege should be verified, not just assumed.
 
 ---
 
@@ -231,7 +233,11 @@ Jimmy was added to:
 
 This simulated onboarding a new employee and granting both baseline department access and role-specific access.
 
-![Joiner access provisioning](screenshots/07_joiner_hr_access.png)
+![Joiner access provisioning](screenshots/07_joiner_hr_access.png) 
+
+### Why this matters in IAM
+
+The joiner process is where access starts, so getting it right matters from day one. I gave Jimmy the baseline HR group and the onboarding entitlement that matched his role instead of adding unrelated access. That helped me practice provisioning access based on job responsibilities rather than giving a new user more permissions than they needed.
 
 ---
 
@@ -289,6 +295,10 @@ I intentionally did **not** add `SG-OPS-Reporting` automatically. Anthony's new 
 
 That was one of the main least-privilege lessons from the mover scenario: a department change should not automatically grant every access package available in the new department.
 
+### Why this matters in IAM
+
+This mover scenario shows why IAM teams need to update both identity information and access when an employee changes roles. If I had only added Anthony to the Operations group and left his Sales access in place, he could have kept permissions that were no longer needed. Removing the old access first and only granting the baseline Operations access helped maintain least privilege and prevent access creep.
+
 ---
 
 ## Leaver Scenario
@@ -333,6 +343,10 @@ For this lab, I treated offboarding as:
 That represents an environment where an organization may keep the account for a period of time for audit, retention, legal, investigation, or recovery reasons before final deletion.
 
 A future extension of this lab could include deleting the account after a defined retention period and validating it under **Deleted users**.
+
+### Why this matters in IAM
+
+Offboarding is more than disabling an account. I also revoked active sessions and removed group memberships so the user would not keep access through an existing session or leftover permissions. Keeping the disabled account in the directory also showed how an organization could retain the identity for audit or retention purposes before final deletion.
 
 ---
 
