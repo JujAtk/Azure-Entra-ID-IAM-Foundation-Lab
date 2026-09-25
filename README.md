@@ -1,4 +1,3 @@
-# Microsoft Entra ID IAM Foundation & JML Lab
 
 ## Project Overview
 
@@ -194,6 +193,8 @@ Using the Stephen Curry admin account, I opened Kevin Durant's account and succe
 
 This confirmed that the **User Administrator** role was actually working for delegated identity administration.
 
+![User Administrator password reset validation](screenshots/07_password_reset_kevin_durant.png)
+
 I did not include the temporary password in the repository because temporary credentials should not be published.
 
 ## Restricted Action: Global Administrator Assignment
@@ -306,6 +307,12 @@ This mover scenario shows why IAM teams need to update both identity information
 For the Leaver scenario, I offboarded **Chris Bosh**.
 
 I did not immediately delete the account. Instead, I followed an access-removal process first.
+
+### Before Offboarding
+
+Before starting the leaver process, Chris Bosh still had Operations access through `SG-OPS-Employees`.
+
+![Chris Bosh before access removal](screenshots/12_leaver_before_group.png)
 
 ### Step 1: Disable the Account
 
