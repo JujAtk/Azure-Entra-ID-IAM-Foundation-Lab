@@ -308,27 +308,31 @@ For the Leaver scenario, I offboarded **Chris Bosh**.
 
 I did not immediately delete the account. Instead, I followed an access-removal process first.
 
-### Before Offboarding
+### Step 1: Confirm the Account Is Enabled
 
-Before starting the leaver process, Chris Bosh still had Operations access through `SG-OPS-Employees`.
+Before offboarding, Chris Bosh's account was still enabled.
 
-![Chris Bosh before access removal](screenshots/12_leaver_before_group.png)
+![Chris Bosh account enabled before offboarding](screenshots/12_leaver_account_enabled.png)
 
-### Step 1: Disable the Account
+### Step 2: Disable the Account
 
 I changed Chris Bosh's account status from Enabled to Disabled.
 
 ![Leaver - disabled account](screenshots/12_leaver_disabled.png)
 
-### Step 2: Revoke Existing Sessions
+### Step 3: Revoke Existing Sessions
 
 After disabling the account, I revoked his active sessions so any existing session would be forced to authenticate again.
 
 Because the account was disabled, a new authentication attempt should no longer be allowed.
 
-### Step 3: Remove Group Memberships
+### Step 4: Review and Remove Group Access
 
-Chris was removed from his remaining Operations security group.
+Before removing access, Chris Bosh was still a member of `SG-OPS-Employees`.
+
+![Chris Bosh before access removal](screenshots/12_leaver_before_group.png)
+
+I then removed Chris from his remaining Operations security group.
 
 The final group view showed:
 
